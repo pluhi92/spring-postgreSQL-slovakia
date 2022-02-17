@@ -1,8 +1,8 @@
 package com.pluhi.springpostgreSQLslovakia.controller;
 
-
 import com.pluhi.springpostgreSQLslovakia.model.Village;
 import com.pluhi.springpostgreSQLslovakia.service.DistrictService;
+import com.pluhi.springpostgreSQLslovakia.service.RegionService;
 import com.pluhi.springpostgreSQLslovakia.service.VillageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,10 +17,19 @@ import java.util.List;
 public class DataController {
 
     @Autowired
+    private RegionService regionService;
+
+    @Autowired
     private DistrictService districtService;
 
     @Autowired
     private VillageService villageService;
+
+    @GetMapping("/regionForm")
+    public String regionList(Model model) {
+        model.addAttribute("listRegions", regionService.getAllRegions());
+        return "regions";
+    }
 
     @GetMapping("/districtForm")
     public String districtList(Model model) {
@@ -50,7 +59,7 @@ public class DataController {
     }
 
     @GetMapping("/page/{pageNo}")
-    public String findPaginated(@PathVariable (value = "pageNo") int pageNo,
+    public String findPaginated(@PathVariable(value = "pageNo") int pageNo,
                                 @RequestParam("sortField") String sortField,
                                 @RequestParam("sortDir") String sortDir,
                                 Model model) {

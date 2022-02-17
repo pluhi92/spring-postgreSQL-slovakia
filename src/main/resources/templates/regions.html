@@ -3,7 +3,7 @@
       xsi:schemaLocation="http://www.thymeleaf.org ">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Districts of Slovakia</title>
+    <title>Regions of Slovakia</title>
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -15,20 +15,20 @@
 <div class="container px-lg-5">
     <h1 id="time" style="float: right; font-size: 20px; font-weight: bold;"></h1>
     <a th:href="@{/}" class="fa fa-home" style="float: top; font-size: 30px;"></a>
-    <h1>List of Districts</h1>
+    <h1>List of Regions</h1>
     <table border="1" class="table table-striped table-responsive-md">
         <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Veh Reg Num</th>
+            <th>Shortcut</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="district : ${listDistricts}">
-            <td th:text="${district.id}"></td>
-            <td th:text="${district.name}"></td>
-            <td th:text="${district.vehRegNum}"></td>
+        <tr th:each="region : ${listRegions}">
+            <td th:text="${region.id}"></td>
+            <td th:text="${region.name}"></td>
+            <td th:text="${region.shortcut}"></td>
         </tr>
         </tbody>
     </table>
