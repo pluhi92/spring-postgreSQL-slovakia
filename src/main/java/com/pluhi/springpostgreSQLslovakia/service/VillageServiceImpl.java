@@ -19,8 +19,10 @@ public class VillageServiceImpl implements VillageService {
     private VillageRepository villageRepository;
 
     @Override
-    public List<Village> getAllVillages() {
-        return villageRepository.findAll();
+    public List<Village> getAllVillages(String keyword) {
+
+            return villageRepository.findAll(keyword);
+
     }
 
     @Override
