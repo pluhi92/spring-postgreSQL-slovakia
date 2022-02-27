@@ -21,7 +21,7 @@
         <form th:action="@{/villageForm}">
             <input type="text" placeholder="Search.." name="keyword" required>
             <button type="submit"><i class="fa fa-search"></i></button>
-            <input type="button" value="Clear">
+            <input type="button" value="Clear" onclick="clearFilter()">
         </form>
 
     </div>
@@ -59,6 +59,13 @@
   }
   getCurrentTime();
   window.setInterval("getCurrentTime()", 1000);
+
+    </script>
+    <script type="text/javascript">
+        function clearFilter() {
+        window.location = '/villageForm';
+        }
+
     </script>
 </div>
 </body>
